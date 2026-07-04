@@ -1,0 +1,45 @@
+{
+  "name": "linkmap-viewer",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "linkmap-viewer": "bin/linkmap-viewer.mjs"
+  },
+  "files": [
+    "bin",
+    "dist-report",
+    "dist-cli"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "build:report": "vite build --config vite.report.config.ts",
+    "build:cli": "vite build --config vite.cli.config.ts",
+    "prepare": "npm run build:report && npm run build:cli",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "pretest:e2e": "npm run build:report && npm run build:cli",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "dependencies": {
+    "d3": "^7.9.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "swift-demangle-wasm": "^1.0.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/d3": "^7.4.3",
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.0.4",
+    "jsdom": "^27.0.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.11",
+    "vite-plugin-singlefile": "^2.3.3",
+    "vitest": "^4.0.1"
+  }
+}

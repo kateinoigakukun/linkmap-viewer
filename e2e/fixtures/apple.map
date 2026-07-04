@@ -1,0 +1,16 @@
+# Path: /build/Release-iphoneos/Demo.framework/Demo
+# Arch: arm64
+# Object files:
+[  0] linker synthesized
+[  1] /build/Intermediates.noindex/Core.build/Objects-normal/arm64/Session.o
+[  2] /build/Products/Release-iphoneos/libSchema.a(Schema.o)
+# Sections:
+# Address	Size    	Segment	Section
+0x100004000	0x00000c00	__TEXT	__text
+# Symbols:
+# Address	Size    	File  Name
+0x100004000	0x00000400	[  1] _$s4Core7SessionCACycfc
+0x100004400	0x00000800	[  2] _$s6Schema10NotesItemV
+# Dead Stripped Symbols:
+#        	Size    	File  Name
+<<dead>> 	0x00009999	[  1] _$s4Core6UnusedV

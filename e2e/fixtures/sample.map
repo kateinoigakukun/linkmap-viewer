@@ -1,0 +1,7 @@
+    Addr      Off     Size Out     In      Symbol
+       -        0      400         /Users/test/project/src/a.o:(.text)
+       -        0      400                 main
+       -      400      300         /Users/test/project/src/deep/b.o:(.text)
+       -      400      300                 helper
+       -      700      200         /Users/test/project/vendor/lib.o:(.text)
+       -      700      200                 libfn

@@ -1,0 +1,376 @@
+:root {
+  --bg: #fff;
+  --fg-on: #000;
+  --fg: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #191919;
+    --fg-on: #ddd;
+    --fg: #aaa;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 50px;
+  font: 16px/20px sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+section {
+  margin: auto;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.1em;
+  color: var(--fg-on);
+  margin: 0;
+}
+
+blockquote {
+  font-size: 29px;
+  line-height: 1em;
+  margin: 5px 0;
+  font-style: italic;
+}
+
+p {
+  margin: 20px 0;
+}
+
+a,
+b {
+  color: var(--fg-on);
+}
+
+code {
+  font: 14px/20px ui-monospace, monospace;
+  background: rgba(127, 127, 127, 0.2);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.center {
+  text-align: center;
+}
+
+.start-panel {
+  margin: 10% auto 0 auto;
+}
+
+.results-panel {
+  display: none;
+}
+
+.results-panel.visible {
+  display: block;
+}
+
+button.import-button {
+  padding: 5px 30px;
+  line-height: 1.5em;
+  background: none;
+  color: var(--fg);
+  border: 1px solid var(--fg);
+  border-radius: 100px;
+  cursor: pointer;
+  font: inherit;
+}
+
+button.import-button:hover {
+  color: var(--fg-on);
+  border-color: var(--fg-on);
+  background: rgba(127, 127, 127, 0.2);
+}
+
+button.import-button:active {
+  padding: 6px 30px 4px 30px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+button.import-button:disabled,
+button.text-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+button.text-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--fg-on);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+button.text-button:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+.summary {
+  max-width: 600px;
+  margin: 0 auto 16px;
+  text-align: center;
+}
+
+.summary h2 {
+  font-size: 30px;
+  line-height: 1em;
+  color: var(--fg-on);
+  margin: 0;
+}
+
+.summary p {
+  margin: 8px 0 0;
+}
+
+.chart-panel {
+  margin: 0 -50px;
+  padding: 0 50px;
+}
+
+.chart-panel section {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.chart-panel section p {
+  margin: 0;
+}
+
+.chart-panel main,
+.treemap-panel main {
+  position: relative;
+  margin-top: 12px;
+}
+
+.treemap-panel {
+  margin: 0 -50px;
+  padding: 0 50px;
+}
+
+.treemap-host {
+  position: relative;
+  margin: auto;
+}
+
+.treemap-host main {
+  position: relative;
+}
+
+.treemap-breadcrumb {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 2px;
+  max-width: min(1600px, 100%);
+  margin: 0 auto 8px;
+  padding: 0 4px;
+  font: 14px/20px ui-monospace, monospace;
+  color: var(--fg);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.treemap-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.treemap-breadcrumb-sep {
+  padding: 0 2px;
+  color: var(--fg);
+  user-select: none;
+}
+
+.treemap-breadcrumb-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--fg-on);
+  cursor: pointer;
+  text-decoration: underline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.treemap-breadcrumb-link.root,
+.treemap-breadcrumb-link.fixed,
+.treemap-breadcrumb-sep {
+  flex-shrink: 0;
+}
+
+.treemap-breadcrumb-root + .treemap-breadcrumb-item {
+  min-width: 0;
+}
+
+.treemap-breadcrumb-link:hover {
+  opacity: 0.8;
+}
+
+.treemap-breadcrumb-current {
+  color: var(--fg-on);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.treemap-host svg {
+  display: block;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+.tooltip {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #000;
+  color: #999;
+  border-radius: 30px;
+  padding: 0 10px;
+  font-size: 14px;
+  line-height: 30px;
+  user-select: none;
+  touch-action: none;
+  pointer-events: none;
+  z-index: 1000;
+  max-width: min(90vw, 640px);
+  white-space: nowrap;
+}
+
+.tooltip-size {
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.tooltip-path {
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.tooltip-prefix {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tooltip-leaf {
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.tooltip b {
+  color: #fff;
+}
+
+.error {
+  color: #e24834;
+  text-align: center;
+}
+
+.drag-target {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(127, 127, 127, 0.5);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--fg-on);
+}
+
+.drag-target.visible {
+  display: flex;
+}
+
+.symbol-drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border-top: 1px solid rgba(127, 127, 127, 0.35);
+}
+
+.symbol-drawer-resizer {
+  flex-shrink: 0;
+  height: 8px;
+  cursor: ns-resize;
+  touch-action: none;
+}
+
+.symbol-drawer-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 50px 20px;
+}
+
+.symbol-drawer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.symbol-drawer-title {
+  margin: 0;
+  font: inherit;
+  font-family: ui-monospace, monospace;
+  color: var(--fg-on);
+  overflow-wrap: anywhere;
+}
+
+.symbol-drawer-close {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--fg-on);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.symbol-drawer-body p {
+  margin: 8px 0;
+}
+
+.symbol-drawer-body code {
+  display: inline-block;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+/* Format hints on the start panel: secondary to the lede, but still readable. */
+.start-panel .formats {
+  font-size: 0.9em;
+  opacity: 0.75;
+  line-height: 1.8;
+}
