@@ -16,6 +16,9 @@ The demo includes a [JavaScriptKit Basic example](https://github.com/swiftwasm/J
 
 Live demo: https://kateinoigakukun.github.io/linkmapviz/
 
+
+https://github.com/user-attachments/assets/e3072cb7-a254-42b2-8b1a-c500911ca246
+
 ## CLI
 
 The `linkmapviz` command renders a linker map as a single, self-contained HTML file — no
