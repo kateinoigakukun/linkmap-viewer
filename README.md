@@ -1,5 +1,8 @@
 # linkmapviz
 
+[![npm](https://img.shields.io/npm/v/linkmapviz)](https://www.npmjs.com/package/linkmapviz)
+[![license](https://img.shields.io/npm/l/linkmapviz)](LICENSE)
+
 Minimal viewer for linker map files. Upload a `.map` or gzip-compressed `.map.gz` file to see binary size as a D3 treemap grouped by object file and symbol.
 
 Two formats are supported, detected from the file's own contents:
@@ -68,6 +71,20 @@ npm run test:e2e  # browser tests (Playwright)
 Pushes to `main` deploy automatically via `.github/workflows/deploy.yml`.
 
 Enable Pages in the repository settings: **Settings → Pages → Build and deployment → GitHub Actions**.
+
+## Releasing
+
+Bump the version, then push a matching `v` tag:
+
+```bash
+npm version patch   # or minor / major
+git push --follow-tags
+```
+
+`.github/workflows/release.yml` runs the tests and publishes to npm. It authenticates through
+[OIDC trusted publishing](https://docs.npmjs.com/trusted-publishers), so there is no npm token in
+the repository, and provenance is attested automatically. The trusted publisher on npmjs.com pins
+the workflow by filename — renaming `release.yml` means updating that setting too.
 
 ## Linkmap formats
 

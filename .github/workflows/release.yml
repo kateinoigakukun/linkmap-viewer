@@ -1,0 +1,51 @@
+name: Release
+
+# Publishes to npm through OIDC trusted publishing, so there is no NPM_TOKEN secret.
+# The trusted publisher configured on npmjs.com pins this workflow by filename, so renaming
+# this file breaks publishing until the setting is updated to match.
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # Lets the job mint the OIDC token npm authenticates with.
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Trusted publishing needs Node >= 22.14.0 and npm >= 11.5.1; Node 22 ships npm 10, hence
+      # the upgrade below. The npm cache is left off, as npm's own example does.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - run: npm install -g npm@latest
+
+      - run: npm ci
+
+      - name: Check the tag matches the package version
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          version="$(node -p 'require("./package.json").version')"
+          if [ "$tag" != "$version" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package.json version $version" >&2
+            exit 1
+          fi
+
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      # Covers the published CLI end to end: it generates a report and opens it in a browser.
+      - run: npm run test:e2e
+      - run: npm run build
+
+      # `prepare` rebuilds dist-report/ and dist-cli/, the files the package actually ships.
+      # Provenance is attested automatically when publishing through a trusted publisher, so
+      # --provenance is not needed.
+      - run: npm publish
