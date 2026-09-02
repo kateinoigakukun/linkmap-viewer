@@ -1,6 +1,6 @@
 {
   "name": "linkmapviz",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Visualize where the bytes in your binary came from, as a treemap of a wasm-ld or Apple ld linker map",
   "type": "module",
   "license": "MIT",
