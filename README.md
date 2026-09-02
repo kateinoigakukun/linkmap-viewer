@@ -62,8 +62,8 @@ git push --follow-tags
 
 ## Linkmap formats
 
-Both parsers normalise to the same shape, so everything downstream — the path tree, the treemap,
-the symbol drawer — is format-agnostic. `parseLinkmap` picks the parser; there is no setting.
+Both parsers normalise to the same shape, so everything downstream (the path tree, the treemap,
+the symbol drawer) is format-agnostic. `parseLinkmap` picks the parser; there is no setting.
 
 Object names are taken from the path basename with a trailing `.o` stripped. Archive members are
 named after the member rather than the archive, so `libFoo.a(Bar.o)` reads as `Bar`. No language-
@@ -97,10 +97,9 @@ and a symbol's section is resolved from the address ranges in `# Sections:`.
 0x100004000	0x00000100	[  1] _$s3Foo3BarV
 ```
 
-Two details worth knowing. Symbols listed under `# Dead Stripped Symbols:` are **excluded** —
-the linker removed them, so counting them would overstate every total. And the Mach-O leading
-underscore is stripped from symbol names, which is what lets Swift's `$s` prefix reach the
-demangler.
+Symbols listed under `# Dead Stripped Symbols:` are **excluded**. The linker removed them, so
+counting them would overstate every total. And the Mach-O leading underscore is stripped from
+symbol names, which is what lets Swift's `$s` prefix reach the demangler.
 
 ## License
 

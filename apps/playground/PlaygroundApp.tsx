@@ -117,10 +117,10 @@ export default function PlaygroundApp() {
             symbol. Gzip-compressed <code>.map.gz</code> files are supported.
           </p>
           <p className="formats">
-            <strong>wasm-ld and other LLD flavours</strong> — pass{' '}
+            <strong>wasm-ld and other LLD flavours</strong>: pass{' '}
             <code>-Wl,-Map=output.map</code> to your linker.
             <br />
-            <strong>Apple ld (ld64, ld-prime)</strong> — pass{' '}
+            <strong>Apple ld (ld64, ld-prime)</strong>: pass{' '}
             <code>-Wl,-map,output.map</code>, or in Xcode set{' '}
             <code>LD_GENERATE_MAP_FILE=YES</code> and <code>LD_MAP_FILE_PATH</code>.
             <br />
