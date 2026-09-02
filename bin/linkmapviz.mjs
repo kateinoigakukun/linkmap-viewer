@@ -5,13 +5,13 @@ import { basename, dirname, extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 // Keep in sync with apps/report/index.html and apps/report/embedded.ts.
-const DATA_PLACEHOLDER = '__LINKMAP_VIEWER_DATA__';
+const DATA_PLACEHOLDER = '__LINKMAPVIZ_DATA__';
 
 const TEMPLATE_PATH = fileURLToPath(new URL('../dist-report/index.html', import.meta.url));
 const REPORT_DATA_PATH = fileURLToPath(new URL('../dist-cli/reportData.mjs', import.meta.url));
 
 function printUsage() {
-  console.log(`Usage: linkmap-viewer <linkmap> [-o|--output <output.html>]
+  console.log(`Usage: linkmapviz <linkmap> [-o|--output <output.html>]
 
 Renders a linker map (.map or .map.gz, wasm-ld or Apple ld) as a
 self-contained HTML report that can be opened directly in a browser.
@@ -65,7 +65,7 @@ function readLinkmapText(inputPath) {
 }
 
 function fail(message) {
-  console.error(`linkmap-viewer: ${message}`);
+  console.error(`linkmapviz: ${message}`);
   process.exit(1);
 }
 
@@ -87,7 +87,7 @@ async function main() {
   try {
     args = parseArgs(process.argv.slice(2));
   } catch (err) {
-    console.error(`linkmap-viewer: ${err.message}\n`);
+    console.error(`linkmapviz: ${err.message}\n`);
     printUsage();
     process.exit(1);
   }
@@ -100,7 +100,7 @@ async function main() {
   } catch {
     fail(
       `report template not found at ${TEMPLATE_PATH}.\n` +
-        'Run `npm run build:report` in the linkmap-viewer package first.',
+        'Run `npm run build:report` in the linkmapviz package first.',
     );
   }
 
@@ -114,7 +114,7 @@ async function main() {
   } catch {
     fail(
       `report builder not found at ${REPORT_DATA_PATH}.\n` +
-        'Run `npm run build:cli` in the linkmap-viewer package first.',
+        'Run `npm run build:cli` in the linkmapviz package first.',
     );
   }
 

@@ -8,16 +8,16 @@ import { appleMapPath, sampleMapGzPath, sampleMapPath } from './helpers';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.join(__dirname, '..');
-const cliPath = path.join(repoRoot, 'bin', 'linkmap-viewer.mjs');
+const cliPath = path.join(repoRoot, 'bin', 'linkmapviz.mjs');
 
 function renderReport(inputPath: string): { outputPath: string; cleanup: () => void } {
-  const dir = mkdtempSync(path.join(tmpdir(), 'linkmap-viewer-report-'));
+  const dir = mkdtempSync(path.join(tmpdir(), 'linkmapviz-report-'));
   const outputPath = path.join(dir, 'report.html');
   execFileSync('node', [cliPath, inputPath, '-o', outputPath], { cwd: repoRoot });
   return { outputPath, cleanup: () => rmSync(dir, { recursive: true, force: true }) };
 }
 
-test.describe('linkmap-viewer CLI', () => {
+test.describe('linkmapviz CLI', () => {
   test('renders a self-contained report from a wasm-ld map', async ({ page }) => {
     const { outputPath, cleanup } = renderReport(sampleMapPath);
     try {

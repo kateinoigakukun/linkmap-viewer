@@ -1,20 +1,20 @@
 {
-  "name": "linkmap-viewer",
+  "name": "linkmapviz",
   "version": "1.0.0",
   "description": "Visualize where the bytes in your binary came from, as a treemap of a wasm-ld or Apple ld linker map",
   "type": "module",
   "license": "MIT",
   "author": "Yuta Saito",
-  "homepage": "https://kateinoigakukun.github.io/linkmap-viewer/",
+  "homepage": "https://kateinoigakukun.github.io/linkmapviz/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kateinoigakukun/linkmap-viewer.git"
+    "url": "git+https://github.com/kateinoigakukun/linkmapviz.git"
   },
   "bugs": {
-    "url": "https://github.com/kateinoigakukun/linkmap-viewer/issues"
+    "url": "https://github.com/kateinoigakukun/linkmapviz/issues"
   },
   "bin": {
-    "linkmap-viewer": "bin/linkmap-viewer.mjs"
+    "linkmapviz": "bin/linkmapviz.mjs"
   },
   "files": [
     "bin",

@@ -2,11 +2,11 @@ import { decompressGzip, isGzipData } from '../../src/utils/gzip';
 import { decodeReport, type ReportPayload } from '../../src/utils/reportPayload';
 import type { TreemapData } from '../../src/types/linkmap';
 
-// The CLI (bin/linkmap-viewer.mjs) substitutes this element's placeholder text with a base64 gzip
+// The CLI (bin/linkmapviz.mjs) substitutes this element's placeholder text with a base64 gzip
 // of the encoded treemap. The placeholder text is deliberately not referenced here: the CLI does a
 // blind find-and-replace over the whole built file, so a copy of it in this source would be
 // clobbered too.
-const EMBEDDED_DATA_ELEMENT_ID = 'linkmap-viewer-data';
+const EMBEDDED_DATA_ELEMENT_ID = 'linkmapviz-data';
 
 function base64ToBytes(base64: string): Uint8Array {
   const binary = atob(base64);

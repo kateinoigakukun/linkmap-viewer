@@ -1,7 +1,7 @@
 import type { TreemapNode } from '../types/linkmap';
 
 // Pure Swift-symbol helpers, with no demangler attached. The playground demangles in the browser
-// with wasm (swiftDemangle.ts); the CLI does it in Node (bin/linkmap-viewer.mjs). Both then call
+// with wasm (swiftDemangle.ts); the CLI does it in Node (bin/linkmapviz.mjs). Both then call
 // applyDemangledNames, so a report ships display names rather than a demangler.
 
 export function isSwiftMangledSymbol(name: string): boolean {

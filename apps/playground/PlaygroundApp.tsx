@@ -110,7 +110,7 @@ export default function PlaygroundApp() {
 
       <div className="start-panel" style={{ display: data ? 'none' : 'block' }}>
         <section className="center">
-          <h1>Linkmap Viewer</h1>
+          <h1>linkmapviz</h1>
           <p>
             This page provides a way to visualize where the bytes in your binary came from.
             Import a linker map below and it is shown as a treemap grouped by object file and

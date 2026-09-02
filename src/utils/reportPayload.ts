@@ -72,7 +72,7 @@ export function decodeReport(payload: ReportPayload): TreemapData {
   if (payload.version !== REPORT_FORMAT_VERSION) {
     throw new Error(
       `Unsupported report format (found ${payload.version}, expected ${REPORT_FORMAT_VERSION}). ` +
-        'Regenerate the report with a matching version of linkmap-viewer.',
+        'Regenerate the report with a matching version of linkmapviz.',
     );
   }
 

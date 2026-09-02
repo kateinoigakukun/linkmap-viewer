@@ -1,4 +1,4 @@
-# Linkmap Viewer
+# linkmapviz
 
 Minimal viewer for linker map files. Upload a `.map` or gzip-compressed `.map.gz` file to see binary size as a D3 treemap grouped by object file and symbol.
 
@@ -11,16 +11,16 @@ Two formats are supported, detected from the file's own contents:
 
 The demo includes a [JavaScriptKit Basic example](https://github.com/swiftwasm/JavaScriptKit/tree/main/Examples/Basic) linkmap (`public/samples/javascriptkit-basic.map.gz`, 19 MB → 1.2 MB gzipped).
 
-Live demo: https://kateinoigakukun.github.io/linkmap-viewer/
+Live demo: https://kateinoigakukun.github.io/linkmapviz/
 
 ## CLI
 
-The `linkmap-viewer` command renders a linker map as a single, self-contained HTML file — no
+The `linkmapviz` command renders a linker map as a single, self-contained HTML file — no
 server needed, just open it in a browser:
 
 ```bash
-npx linkmap-viewer output.map              # writes output.html
-npx linkmap-viewer output.map -o report.html
+npx linkmapviz output.map              # writes output.html
+npx linkmapviz output.map -o report.html
 ```
 
 It accepts the same `.map` and `.map.gz` files as the web app, from either linker.

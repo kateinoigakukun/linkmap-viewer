@@ -23,7 +23,7 @@ export default function ReportApp() {
     return (
       <div className="start-panel">
         <section className="center">
-          <h1>Linkmap Viewer</h1>
+          <h1>linkmapviz</h1>
           <p className="error" data-testid="error-message">{error}</p>
         </section>
       </div>
@@ -34,10 +34,10 @@ export default function ReportApp() {
     return (
       <div className="start-panel">
         <section className="center">
-          <h1>Linkmap Viewer</h1>
+          <h1>linkmapviz</h1>
           <p>
             This report has no linkmap embedded in it. Generate one with{' '}
-            <code>npx linkmap-viewer &lt;linkmap&gt;</code>.
+            <code>npx linkmapviz &lt;linkmap&gt;</code>.
           </p>
         </section>
       </div>

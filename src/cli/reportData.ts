@@ -4,7 +4,7 @@ import { applyDemangledNames, collectSwiftSymbolNames } from '../utils/swiftSymb
 
 // Everything the CLI needs from the app's own logic, bundled to plain JS for Node by
 // vite.cli.config.ts. This is what lets a report ship without a parser or a wasm demangler:
-// bin/linkmap-viewer.mjs parses here, demangles with the Node build of swift-demangle-wasm,
+// bin/linkmapviz.mjs parses here, demangles with the Node build of swift-demangle-wasm,
 // and embeds only the encoded treemap.
 
 /** Parses a linkmap and encodes it for embedding, given a demangler for its Swift symbols. */

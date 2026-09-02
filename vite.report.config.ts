@@ -6,7 +6,7 @@ import { viteSingleFile } from 'vite-plugin-singlefile';
 const resolvePath = (path: string) => fileURLToPath(new URL(path, import.meta.url));
 
 // Builds apps/report into a single, dependency-free HTML file (dist-report/index.html) that the
-// `linkmap-viewer` CLI uses as a template: it substitutes the `__LINKMAP_VIEWER_DATA__`
+// `linkmapviz` CLI uses as a template: it substitutes the `__LINKMAPVIZ_DATA__`
 // placeholder with the encoded treemap and writes the result out as a standalone report.
 //
 // The report app imports no linkmap parser and no wasm demangler -- the CLI does both up front --
